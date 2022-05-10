@@ -49,7 +49,7 @@
 			obj.setName(a.getName());
 			obj.setAge(a.getAge());
 			bList.stream().forEach((b) -> {
-
+ 
 				obj.setAddress(b.getAddress());
 				obj.setCity(b.getCity());
 				// cList1.add(obj);
@@ -68,3 +68,42 @@
 
 		return cList;
 	}
+	
+	
+	=======================================================
+	V2 working version:
+	List<A> aList = d.getA();
+		List<B> bList = d.getB();
+		List<C> cList = new ArrayList<>();
+		List<C> cList1 = new ArrayList<>();
+		
+		    //C obj=new C();
+		aList.stream().forEach((a) -> {
+			C obj = new C();
+			obj.setId(a.getId());
+			obj.setName(a.getName());
+			obj.setAge(a.getAge());
+			bList.stream().forEach((b) -> {
+
+				 if(a.getId()==b.getId()){
+				obj.setAddress(b.getAddress());
+				obj.setCity(b.getCity());
+				
+				 }
+			});
+			
+			cList.add(obj);
+
+			 System.out.println(cList);
+			// System.out.println(cList1);
+
+		});
+
+		//System.out.println(cList);
+
+		// System.out.println(cList1);
+
+		return cList;
+	
+	===========================================
+	
